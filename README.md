@@ -33,15 +33,15 @@ We also have two methods to respond:
     
 **Troubleshooting:**
 
-    During the execution or test of your multilingual chatbot, it is good to have these tips if you are stuck:
-    - If you are developing your webhooks as cloud functions its good to see the logs in your console: 
-        ibmcloud fn property set --namespace "NAMESPACE" 
-        ibmcloud fn activation poll
+   During the execution or test of your multilingual chatbot, it is good to have these tips if you are stuck:
+   - If you are developing your webhooks as cloud functions its good to see the logs in your console:
+      - ibmcloud fn property set --namespace "NAMESPACE"
+      - ibmcloud fn activation poll
         Note: you can also go to the activation dashboard of your cloud functions to see the logs without running the command line
-    - Disable Autocorrection for Multilingual Input, this will avoid  auto-correcting some words in other languages that break the translation.
-    - Check the Assistant Analytics section to check the logs. There you can see what is received by the Post-message webhook as input from the pre-message webhook.
-    - if the output message is one word in uppercase like "WELCOME" it will not be translated by Watson Language Translator.
-    - if the input of the user is only one word or a short sentence, the confidence of the translator service is going to be low in most cases, so be aware to handle logic in your cloud function to retain the best identified language recognized in the past utterances.
-    - if you use a cloud function sequence, make sure that the last cloud function is returning with the JSON format:   return { body: params }
-    - The post-webhook code doesn't handle slots, but you can improve the code to support it. Right now if the answer unit is not found, the post webhook is going to translate the output from the watson assistant dialog to the user using the last identified language, just like pattern 1.
+   - Disable Autocorrection for Multilingual Input, this will avoid  auto-correcting some words in other languages that break the translation.
+   - Check the Assistant Analytics section to check the logs. There you can see what is received by the Post-message webhook as input from the pre-message webhook.
+   - if the output message is one word in uppercase like "WELCOME" it will not be translated by Watson Language Translator.
+   - if the input of the user is only one word or a short sentence, the confidence of the translator service is going to be low in most cases, so be aware to handle logic in your cloud function to retain the best identified language recognized in the past utterances.
+   - if you use a cloud function sequence, make sure that the last cloud function is returning with the JSON format:   return { body: params }
+   - The post-webhook code doesn't handle slots, but you can improve the code to support it. Right now if the answer unit is not found, the post webhook is going to translate the output from the watson assistant dialog to the user using the last identified language, just like pattern 1.
 
