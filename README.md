@@ -32,6 +32,7 @@ We also have two methods to respond:
    There is some nuance with slot collection and knowing which response to look up, as a slot requires the overall dialog node, handler, and slot IDs, so knowing which response to lookup has some complexity. We suggest relying on automatic translation for this as well.
     
 **Troubleshooting:**
+
     During the execution or test of your multilingual chatbot, it is good to have these tips if you are stuck:
     - If you are developing your webhooks as cloud functions its good to see the logs in your console: 
         ibmcloud fn property set --namespace "NAMESPACE" 
